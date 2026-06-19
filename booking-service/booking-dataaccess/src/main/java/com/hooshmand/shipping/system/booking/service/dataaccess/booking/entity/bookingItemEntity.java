@@ -14,7 +14,7 @@ import java.util.Objects;
 @IdClass(BookingItemEntityId.class)
 @Table(name = "booking_items")
 @Entity
-public class OrderItemEntity {
+public class bookingItemEntity {
 	@Id
 	private Long id;
 	@Id
@@ -28,7 +28,7 @@ public class OrderItemEntity {
 	@Override
 	public boolean equals(Object object) {
 		if (object == null || getClass() != object.getClass()) return false;
-		OrderItemEntity that = (OrderItemEntity) object;
+		bookingItemEntity that = (bookingItemEntity) object;
 		return Objects.equals(id, that.id) && Objects.equals(booking, that.booking) && Objects.equals(quantity, that.quantity);
 	}
 

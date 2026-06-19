@@ -5,7 +5,7 @@ import com.hooshmand.shipping.booking.service.domain.entity.Booking;
 import com.hooshmand.shipping.booking.service.domain.entity.BookingItem;
 import com.hooshmand.shipping.booking.service.domain.valueobject.BookingItemId;
 import com.hooshmand.shipping.system.booking.service.dataaccess.booking.entity.BookingEntity;
-import com.hooshmand.shipping.system.booking.service.dataaccess.booking.entity.OrderItemEntity;
+import com.hooshmand.shipping.system.booking.service.dataaccess.booking.entity.bookingItemEntity;
 import com.hooshmand.shipping.system.domain.valuobject.BookingId;
 import org.springframework.stereotype.Component;
 
@@ -29,9 +29,9 @@ public class BookingDataAccessMapper {
 		return bookingEntity;
 	}
 
-	private List<OrderItemEntity> bookingItemsToBookingItemEntities(List<BookingItem> items) {
+	private List<bookingItemEntity> bookingItemsToBookingItemEntities(List<BookingItem> items) {
 		return items.stream()
-				.map(orderItem -> OrderItemEntity.builder()
+				.map(orderItem -> bookingItemEntity.builder()
 						.id(orderItem.getId().getValue())
 						.quantity(orderItem.getQuantity()).build())
 				.collect(Collectors.toList());
@@ -45,7 +45,7 @@ public class BookingDataAccessMapper {
 				.build();
 	}
 
-	private List<BookingItem> bookingItemsEntitiesToBookingItems(List<OrderItemEntity> items) {
+	private List<BookingItem> bookingItemsEntitiesToBookingItems(List<bookingItemEntity> items) {
 		return items.stream()
 				.map(bookingItem -> BookingItem.builder()
 						.quantity(bookingItem.getQuantity())

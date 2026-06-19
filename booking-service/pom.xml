@@ -19,6 +19,7 @@
         <module>booking-application</module>
         <module>booking-domain</module>
         <module>booking-dataaccess</module>
+        <module>booking-container</module>
     </modules>
 
 

@@ -5,7 +5,6 @@ import com.hooshmand.shipping.system.domain.valuobject.BookingStatus;
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -26,7 +25,7 @@ public class BookingEntity {
 	private String failureMessages;
 
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-	private List<OrderItemEntity> items;
+	private List<bookingItemEntity> items;
 
 	@Override
 	public boolean equals(Object object) {
