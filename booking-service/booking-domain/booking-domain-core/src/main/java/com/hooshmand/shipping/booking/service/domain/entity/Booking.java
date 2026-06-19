@@ -11,8 +11,8 @@ import java.util.UUID;
 public class Booking extends AggregateRoot<BookingId> {
 
 	private final List<BookingItem> items;
-	private final BookingStatus status;
-	private final TrackingId trackingId;
+	private BookingStatus status;
+	private TrackingId trackingId;
 
 	private Booking(Builder builder) {
 		super.setId(builder.bookingId);

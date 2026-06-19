@@ -56,6 +56,11 @@
             </dependency>
             <dependency>
                 <groupId>com.hooshmand.shipping</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hooshmand.shipping</groupId>
                 <artifactId>common-domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
