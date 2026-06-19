@@ -24,7 +24,7 @@ public class BookingEntity {
 	private BookingStatus bookingStatus;
 	private String failureMessages;
 
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
 	private List<bookingItemEntity> items;
 
 	@Override

@@ -4,7 +4,9 @@ import com.hooshmand.shipping.service.domain.outbox.model.containermovement.Book
 import com.hooshmand.shipping.service.domain.ports.output.repository.ContainerMovementOutboxRepository;
 import com.hooshmand.shipping.system.booking.service.dataaccess.outbox.containermovement.mapper.ContainerMovementOutboxDataAccessMapper;
 import com.hooshmand.shipping.system.booking.service.dataaccess.outbox.containermovement.repository.ContainerMovementOutboxJpaRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ContainerMovementOutboxRepositoryImpl implements ContainerMovementOutboxRepository {
 
 	private final ContainerMovementOutboxJpaRepository containerMovementOutboxJpaRepository;

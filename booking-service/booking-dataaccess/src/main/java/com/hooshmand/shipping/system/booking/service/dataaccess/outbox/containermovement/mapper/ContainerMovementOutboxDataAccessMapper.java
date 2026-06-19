@@ -2,7 +2,9 @@ package com.hooshmand.shipping.system.booking.service.dataaccess.outbox.containe
 
 import com.hooshmand.shipping.service.domain.outbox.model.containermovement.BookingContainerMovementOutboxMessage;
 import com.hooshmand.shipping.system.booking.service.dataaccess.outbox.containermovement.entity.ContainerMovementOutboxEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ContainerMovementOutboxDataAccessMapper {
 	public BookingContainerMovementOutboxMessage
 	paymentOutboxEntityToOrderPaymentOutboxMessage(ContainerMovementOutboxEntity containerMovementOutboxEntity) {
