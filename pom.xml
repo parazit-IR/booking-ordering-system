@@ -65,6 +65,11 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.hooshmand.shipping</groupId>
+                <artifactId>booking-dataaccess</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito.version}</version>
