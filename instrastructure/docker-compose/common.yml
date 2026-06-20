@@ -1,0 +1,5 @@
+version: '3.7'
+
+networks:
+  hooshmand-shipping-system:
+    driver: bridge
