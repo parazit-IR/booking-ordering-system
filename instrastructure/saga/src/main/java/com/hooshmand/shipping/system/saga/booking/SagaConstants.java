@@ -1,5 +1,4 @@
-package com.hooshmand.shipping.system.booking;
-
+package com.hooshmand.shipping.system.saga.booking;
 
 public final class SagaConstants {
 

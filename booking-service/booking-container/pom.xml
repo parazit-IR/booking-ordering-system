@@ -39,6 +39,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.hooshmand.shipping</groupId>
+            <artifactId>booking-messaging</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

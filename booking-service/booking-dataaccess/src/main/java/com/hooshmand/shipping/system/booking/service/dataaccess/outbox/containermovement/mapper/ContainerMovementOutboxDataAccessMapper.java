@@ -34,4 +34,18 @@ public class ContainerMovementOutboxDataAccessMapper {
 				.version(bookingContainerMovementOutboxMessage.getVersion())
 				.build();
 	}
+
+	public BookingContainerMovementOutboxMessage containerMovementOutboxEntityToBookingContainerMovementOutboxMessage(ContainerMovementOutboxEntity containerMovementOutboxEntity) {
+		return BookingContainerMovementOutboxMessage.builder()
+				.id(containerMovementOutboxEntity.getId())
+				.sagaId(containerMovementOutboxEntity.getSagaId())
+				.createdAt(containerMovementOutboxEntity.getCreatedAt())
+				.type(containerMovementOutboxEntity.getType())
+				.payload(containerMovementOutboxEntity.getPayload())
+				.bookingStatus(containerMovementOutboxEntity.getBookingStatus())
+				.sagaStatus(containerMovementOutboxEntity.getSagaStatus())
+				.outboxStatus(containerMovementOutboxEntity.getOutboxStatus())
+				.version(containerMovementOutboxEntity.getVersion())
+				.build();
+	}
 }

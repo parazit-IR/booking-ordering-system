@@ -14,9 +14,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
-import static com.hooshmand.shipping.system.booking.SagaConstants.BOOKING_SAGA_NAME;
+import static com.hooshmand.shipping.system.saga.booking.SagaConstants.BOOKING_SAGA_NAME;
+
 
 @Slf4j
 @Component
@@ -70,5 +73,14 @@ public class ContainerMovementOutboxHelper {
 			throw new BookingDomainException("Could not create BookingContainerMovementEventPayload object for order id: " +
 					containerMovementEventPayload.getBookingId(), e);
 		}
+	}
+
+	public Optional<List<BookingContainerMovementOutboxMessage>>
+	getContainerMovementOutboxMessageByOutboxStatusAndSagaStatus(OutboxStatus outboxStatus,
+																 SagaStatus... sagaStatus) {
+		return containerMovementOutboxRepository.findByTypeAndOutboxStatusAndSagaStatus(
+				BOOKING_SAGA_NAME,
+				outboxStatus,
+				sagaStatus);
 	}
 }

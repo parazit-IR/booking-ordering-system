@@ -1,7 +1,6 @@
 package com.hooshmand.shipping.service.domain.dto.create;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -10,7 +9,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Builder
-@AllArgsConstructor
+@lombok.extern.jackson.Jacksonized
 public class BookingItem {
 	@NotNull
 	private final Integer quantity;

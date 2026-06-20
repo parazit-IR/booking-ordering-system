@@ -8,6 +8,11 @@ public class BookingItem extends BaseEntity<BookingItemId> {
 	private BookingId bookingId;
 	private final int quantity;
 
+	void initializeBookingItem(BookingId bookingId, BookingItemId bookingItemId) {
+		this.bookingId = bookingId;
+		super.setId(bookingItemId);
+	}
+
 	public BookingItem(Builder builder) {
 		super.setId(builder.bookingItemId);
 		this.quantity = builder.quantity;

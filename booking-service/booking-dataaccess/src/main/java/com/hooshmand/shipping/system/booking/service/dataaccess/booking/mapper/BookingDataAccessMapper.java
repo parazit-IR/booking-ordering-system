@@ -4,6 +4,7 @@ package com.hooshmand.shipping.system.booking.service.dataaccess.booking.mapper;
 import com.hooshmand.shipping.booking.service.domain.entity.Booking;
 import com.hooshmand.shipping.booking.service.domain.entity.BookingItem;
 import com.hooshmand.shipping.booking.service.domain.valueobject.BookingItemId;
+import com.hooshmand.shipping.booking.service.domain.valueobject.TrackingId;
 import com.hooshmand.shipping.system.booking.service.dataaccess.booking.entity.BookingEntity;
 import com.hooshmand.shipping.system.booking.service.dataaccess.booking.entity.bookingItemEntity;
 import com.hooshmand.shipping.system.domain.valuobject.BookingId;
@@ -12,17 +13,19 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.hooshmand.shipping.booking.service.domain.entity.Booking.FAILURE_MESSAGE_DELIMITER;
+
 @Component
 public class BookingDataAccessMapper {
 
-	//
 	public BookingEntity bookingToBookingEntity(Booking booking) {
 		BookingEntity bookingEntity = BookingEntity.builder()
+				.trackingId(booking.getTrackingId().getValue())
 				.id(booking.getId().getValue())
 				.items(bookingItemsToBookingItemEntities(booking.getItems()))
 				.bookingStatus(booking.getStatus())
-//				.failureMessages(booking.getFailureMessages() != null ?
-//						String.join(FAILURE_MESSAGE_DELIMITER, order.getFailureMessages()) : "")
+				.failureMessages(booking.getFailureMessages() != null ?
+						String.join(FAILURE_MESSAGE_DELIMITER, booking.getFailureMessages()) : "")
 				.build();
 		bookingEntity.getItems().forEach(bookingItemEntity -> bookingItemEntity.setBooking(bookingEntity));
 
@@ -39,6 +42,7 @@ public class BookingDataAccessMapper {
 
 	public Booking bookingEntityToBooking(BookingEntity bookingEntity) {
 		return Booking.builder()
+				.trackingId(new TrackingId(bookingEntity.getTrackingId()))
 				.status(bookingEntity.getBookingStatus())
 				.bookingId(new BookingId(bookingEntity.getId()))
 				.items(bookingItemsEntitiesToBookingItems(bookingEntity.getItems()))

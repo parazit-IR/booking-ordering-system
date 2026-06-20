@@ -40,3 +40,24 @@ CREATE TYPE saga_status AS ENUM ('STARTED', 'FAILED', 'SUCCEEDED', 'PROCESSING',
 
 DROP TYPE IF EXISTS outbox_status;
 CREATE TYPE outbox_status AS ENUM ('STARTED', 'COMPLETED', 'FAILED');
+
+DROP TABLE IF EXISTS "booking".container_movement_outbox CASCADE;
+
+CREATE TABLE "booking".container_movement_outbox
+(
+    id uuid NOT NULL,
+    saga_id uuid NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    processed_at TIMESTAMP WITH TIME ZONE,
+    type character varying COLLATE pg_catalog."default" NOT NULL,
+    payload jsonb NOT NULL,
+    outbox_status outbox_status NOT NULL,
+    saga_status saga_status NOT NULL,
+    booking_status booking_status NOT NULL,
+    version integer NOT NULL,
+    CONSTRAINT container_movement_outbox_pkey PRIMARY KEY (id)
+);
+
+CREATE INDEX "container_movement_saga_status"
+    ON "booking".container_movement_outbox
+        (type, outbox_status, saga_status);
