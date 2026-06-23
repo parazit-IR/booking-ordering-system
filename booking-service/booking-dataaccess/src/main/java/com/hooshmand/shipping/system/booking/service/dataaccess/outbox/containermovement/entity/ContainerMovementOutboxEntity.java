@@ -4,9 +4,9 @@ package com.hooshmand.shipping.system.booking.service.dataaccess.outbox.containe
 import com.hooshmand.shipping.system.domain.valuobject.BookingStatus;
 import com.hooshmand.shipping.system.outbox.OutboxStatus;
 import com.hooshmand.shipping.system.saga.SagaStatus;
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 

@@ -2,9 +2,9 @@ package com.hooshmand.shipping.system.booking.service.dataaccess.booking.entity;
 
 
 import com.hooshmand.shipping.system.domain.valuobject.BookingStatus;
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;

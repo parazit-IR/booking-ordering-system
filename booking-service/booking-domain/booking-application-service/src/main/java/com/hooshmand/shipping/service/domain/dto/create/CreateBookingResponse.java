@@ -2,11 +2,11 @@ package com.hooshmand.shipping.service.domain.dto.create;
 
 
 import com.hooshmand.shipping.system.domain.valuobject.BookingStatus;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Getter

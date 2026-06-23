@@ -1,9 +1,9 @@
 package com.hooshmand.shipping.system.booking.service.dataaccess.booking.entity;
 
 
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.Objects;
 
 @Getter
