@@ -25,7 +25,7 @@ public class BookingEntity {
 	private String failureMessages;
 
 	@OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
-	private List<bookingItemEntity> items;
+	private List<BookingItemEntity> items;
 
 	@Override
 	public boolean equals(Object object) {
