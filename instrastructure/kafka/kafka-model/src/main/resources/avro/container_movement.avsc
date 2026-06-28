@@ -1,7 +1,7 @@
 {
   "namespace": "com.hooshmand.shipping.system.kafka.booking.avro.model",
   "type": "record",
-  "name": "ContainerMovementRequestAvroModel",
+  "name": "ContainerMovementAvroModel",
   "fields": [
     {
       "name": "id",
@@ -11,32 +11,15 @@
       }
     },
     {
-      "name": "sagaId",
+      "name": "type",
       "type": {
-        "type": "string",
-        "logicalType": "uuid"
+        "type": "string"
       }
     },
     {
-      "name": "bookingId",
+      "name": "name",
       "type": {
-        "type": "string",
-        "logicalType": "uuid"
-      }
-    },
-    {
-      "name": "createdAt",
-      "type": {
-        "type": "long",
-        "logicalType": "timestamp-millis"
-      }
-    },
-    {
-      "name": "containerMovementBookingStatus",
-      "type": {
-        "type": "enum",
-        "name": "ContainerMovementBookingStatus",
-        "symbols": ["PENDING", "CANCELLED"]
+        "type": "string"
       }
     }
   ]

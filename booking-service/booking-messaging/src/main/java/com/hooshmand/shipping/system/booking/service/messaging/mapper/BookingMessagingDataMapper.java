@@ -1,7 +1,9 @@
 package com.hooshmand.shipping.system.booking.service.messaging.mapper;
 
 
+import com.hooshmand.shipping.service.domain.dto.message.ContainerMovementModel;
 import com.hooshmand.shipping.service.domain.outbox.model.containermovement.BookingContainerMovementEventPayload;
+import com.hooshmand.shipping.system.kafka.booking.avro.model.ContainerMovementAvroModel;
 import com.hooshmand.shipping.system.kafka.booking.avro.model.ContainerMovementBookingStatus;
 import com.hooshmand.shipping.system.kafka.booking.avro.model.ContainerMovementRequestAvroModel;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,15 @@ public class BookingMessagingDataMapper {
 				.setBookingId(bookingContainerMovementEventPayload.getBookingId())
 				.setCreatedAt(bookingContainerMovementEventPayload.getCreatedAt().toInstant())
 				.setContainerMovementBookingStatus(ContainerMovementBookingStatus.valueOf(bookingContainerMovementEventPayload.getContainerMovementBookingStatus()))
+				.build();
+	}
+
+	public ContainerMovementModel containerMovementAvroModeltoContainerMovementModel(ContainerMovementAvroModel containerMovementAvroModel) {
+		return ContainerMovementModel
+				.builder()
+				.id(String.valueOf(containerMovementAvroModel.getId()))
+				.type(containerMovementAvroModel.getType())
+				.name(containerMovementAvroModel.getName())
 				.build();
 	}
 }

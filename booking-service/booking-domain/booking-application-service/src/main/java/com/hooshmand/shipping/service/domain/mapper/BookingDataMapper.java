@@ -3,15 +3,18 @@ package com.hooshmand.shipping.service.domain.mapper;
 
 import com.hooshmand.shipping.booking.service.domain.entity.Booking;
 import com.hooshmand.shipping.booking.service.domain.entity.BookingItem;
+import com.hooshmand.shipping.booking.service.domain.entity.ContainerMovement;
 import com.hooshmand.shipping.booking.service.domain.event.BookingCreatedEvent;
-import com.hooshmand.shipping.booking.service.domain.valueobject.TrackingId;
 import com.hooshmand.shipping.service.domain.dto.create.CreateBookingCommand;
 import com.hooshmand.shipping.service.domain.dto.create.CreateBookingResponse;
+import com.hooshmand.shipping.service.domain.dto.message.ContainerMovementModel;
 import com.hooshmand.shipping.service.domain.outbox.model.containermovement.BookingContainerMovementEventPayload;
 import com.hooshmand.shipping.system.domain.valuobject.ContainerMovementBookingStatus;
+import com.hooshmand.shipping.system.domain.valuobject.ContainerMovementId;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
@@ -49,4 +52,9 @@ public class BookingDataMapper {
 				.build();
 	}
 
+	public ContainerMovement containerMovementModelToContainerMovement(ContainerMovementModel containerMovementModel) {
+		return new ContainerMovement(new ContainerMovementId(UUID.fromString(containerMovementModel.getId())),
+				containerMovementModel.getType(),
+				containerMovementModel.getName());
+	}
 }
