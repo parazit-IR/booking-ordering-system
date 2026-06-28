@@ -29,9 +29,9 @@ public class ContainerMovementOutboxRepositoryImpl implements ContainerMovementO
 	@Override
 	public BookingContainerMovementOutboxMessage save(BookingContainerMovementOutboxMessage bookingContainerMovementOutboxMessage) {
 		return containerMovementOutboxDataAccessMapper
-				.paymentOutboxEntityToOrderPaymentOutboxMessage(containerMovementOutboxJpaRepository
+				.containerMovementOutboxEntityToBookingContainerMovementOutboxMessage(containerMovementOutboxJpaRepository
 						.save(containerMovementOutboxDataAccessMapper
-								.orderPaymentOutboxMessageToOutboxEntity(bookingContainerMovementOutboxMessage)));
+								.bookingContainerMovementOutboxMessageToOutboxEntity(bookingContainerMovementOutboxMessage)));
 	}
 
 	@Override

@@ -34,11 +34,11 @@ public class Booking extends AggregateRoot<BookingId> {
 		setId(new BookingId(UUID.randomUUID()));
 		this.trackingId = new TrackingId(UUID.randomUUID());
 		this.status = BookingStatus.PENDING;
-		initializeOrderItems();
+		initializeBookingItems();
 		//business logic
 	}
 
-	private void initializeOrderItems() {
+	private void initializeBookingItems() {
 		long itemId = 1;
 		for (BookingItem bookingItem: items) {
 			bookingItem.initializeBookingItem(super.getId(), new BookingItemId(itemId++));

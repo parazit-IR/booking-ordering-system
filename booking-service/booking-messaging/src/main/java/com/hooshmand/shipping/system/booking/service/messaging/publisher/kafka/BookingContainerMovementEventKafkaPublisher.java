@@ -37,7 +37,7 @@ public class BookingContainerMovementEventKafkaPublisher implements ContainerMov
 	@Override
 	public void publish(BookingContainerMovementOutboxMessage containerMovementOutboxMessage,
 						BiConsumer<BookingContainerMovementOutboxMessage, OutboxStatus> outboxCallback) {
-		BookingContainerMovementEventPayload bookingContainerMovementEventPayload = kafkaMessageHelper.getOrderEventPayload(containerMovementOutboxMessage.getPayload(),
+		BookingContainerMovementEventPayload bookingContainerMovementEventPayload = kafkaMessageHelper.getBookingEventPayload(containerMovementOutboxMessage.getPayload(),
 				BookingContainerMovementEventPayload.class);
 
 		String sagaId = containerMovementOutboxMessage.getSagaId().toString();

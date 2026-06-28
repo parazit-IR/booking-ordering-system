@@ -6,22 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ContainerMovementOutboxDataAccessMapper {
-	public BookingContainerMovementOutboxMessage
-	paymentOutboxEntityToOrderPaymentOutboxMessage(ContainerMovementOutboxEntity containerMovementOutboxEntity) {
-		return BookingContainerMovementOutboxMessage.builder()
-				.id(containerMovementOutboxEntity.getId())
-				.sagaId(containerMovementOutboxEntity.getSagaId())
-				.createdAt(containerMovementOutboxEntity.getCreatedAt())
-				.type(containerMovementOutboxEntity.getType())
-				.payload(containerMovementOutboxEntity.getPayload())
-				.bookingStatus(containerMovementOutboxEntity.getBookingStatus())
-				.sagaStatus(containerMovementOutboxEntity.getSagaStatus())
-				.outboxStatus(containerMovementOutboxEntity.getOutboxStatus())
-				.version(containerMovementOutboxEntity.getVersion())
-				.build();
-	}
-
-	public ContainerMovementOutboxEntity orderPaymentOutboxMessageToOutboxEntity(BookingContainerMovementOutboxMessage bookingContainerMovementOutboxMessage) {
+	public ContainerMovementOutboxEntity bookingContainerMovementOutboxMessageToOutboxEntity(BookingContainerMovementOutboxMessage bookingContainerMovementOutboxMessage) {
 		return ContainerMovementOutboxEntity.builder()
 				.id(bookingContainerMovementOutboxMessage.getId())
 				.sagaId(bookingContainerMovementOutboxMessage.getSagaId())

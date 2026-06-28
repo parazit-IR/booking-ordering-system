@@ -34,9 +34,9 @@ public class BookingDataAccessMapper {
 
 	private List<bookingItemEntity> bookingItemsToBookingItemEntities(List<BookingItem> items) {
 		return items.stream()
-				.map(orderItem -> bookingItemEntity.builder()
-						.id(orderItem.getId().getValue())
-						.quantity(orderItem.getQuantity()).build())
+				.map(bookingItem -> bookingItemEntity.builder()
+						.id(bookingItem.getId().getValue())
+						.quantity(bookingItem.getQuantity()).build())
 				.collect(Collectors.toList());
 	}
 
