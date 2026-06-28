@@ -89,6 +89,11 @@
             </dependency>
             <dependency>
                 <groupId>com.hooshmand.shipping</groupId>
+                <artifactId>kafka-consumer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hooshmand.shipping</groupId>
                 <artifactId>booking-messaging</artifactId>
                 <version>${project.version}</version>
             </dependency>
