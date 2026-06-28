@@ -83,7 +83,7 @@ public class Booking extends AggregateRoot<BookingId> {
 		}
 
 		public Builder trackingId(TrackingId trackingId) {
-			trackingId = trackingId;
+			this.trackingId = trackingId;
 			return this;
 		}
 
