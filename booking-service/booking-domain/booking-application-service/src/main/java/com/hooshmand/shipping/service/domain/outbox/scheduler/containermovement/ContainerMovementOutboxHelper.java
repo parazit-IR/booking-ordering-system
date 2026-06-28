@@ -70,7 +70,7 @@ public class ContainerMovementOutboxHelper {
 		} catch (JsonProcessingException e) {
 			log.error("Could not create BookingContainerMovementEventPayload object for booking id: {}",
 					containerMovementEventPayload.getBookingId(), e);
-			throw new BookingDomainException("Could not create BookingContainerMovementEventPayload object for order id: " +
+			throw new BookingDomainException("Could not create BookingContainerMovementEventPayload object for booking id: " +
 					containerMovementEventPayload.getBookingId(), e);
 		}
 	}

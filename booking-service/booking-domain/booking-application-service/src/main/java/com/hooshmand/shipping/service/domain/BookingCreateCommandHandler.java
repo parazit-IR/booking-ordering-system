@@ -44,7 +44,7 @@ public class BookingCreateCommandHandler {
 				OutboxStatus.STARTED,
 				UUID.randomUUID());
 
-		log.info("Returning CreateBookingResponse with order id: {}", bookingCreatedEvent.getBooking().getId());
+		log.info("Returning CreateBookingResponse with booking id: {}", bookingCreatedEvent.getBooking().getId());
 
 		return createBookingResponse;
 	}
