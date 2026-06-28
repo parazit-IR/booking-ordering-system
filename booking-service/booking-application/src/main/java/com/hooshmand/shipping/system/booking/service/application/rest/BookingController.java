@@ -22,10 +22,10 @@ public class BookingController {
 	}
 
 	@PostMapping
-	public ResponseEntity<CreateBookingResponse> createOrder(@RequestBody CreateBookingCommand createBookingCommand) {
+	public ResponseEntity<CreateBookingResponse> createBooking(@RequestBody CreateBookingCommand createBookingCommand) {
 		log.info("Creating booking by items: [{}]", createBookingCommand.getItems());
 		CreateBookingResponse createBookingResponse = bookingApplicationService.createBooking(createBookingCommand);
-		log.info("Order created with tracking id: {}", createBookingResponse.getBookingTrackingId());
+		log.info("Booking created with tracking id: {}", createBookingResponse.getBookingTrackingId());
 		return ResponseEntity.ok(createBookingResponse);
 	}
 }
