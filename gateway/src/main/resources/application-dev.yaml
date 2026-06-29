@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+keycloak:
+  url: http://localhost:8082
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak.url}/realms/liner-core
+          jwk-set-uri: ${keycloak.url}/realms/liner-core/protocol/openid-connect/certs
+
+booking:
+  uri: http://localhost:8080
+  route-id: booking-route-id
+  path: /booking/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+
+logging:
+  level:
+    com:
+      hooshmand:
+        shipping:
+          gateway:
+            config:
+              RequestLoggingFilter: DEBUG
+
+logs:
+  directory: ${java.io.tmpdir}
+
+cors:
+  allowed-origins: "*"

@@ -22,4 +22,4 @@ services:
       kafka-topics --bootstrap-server kafka-broker-1:9092 --list
       "
     networks:
-      - ${GLOBAL_NETWORK:-kafka}
+      - ${GLOBAL_NETWORK}

@@ -8,6 +8,7 @@
         <module>booking-service</module>
         <module>common</module>
         <module>instrastructure</module>
+        <module>gateway</module>
     </modules>
 
     <parent>
